@@ -1,5 +1,7 @@
 ##### <a href="#模板标题">模板标题</a>
 ##### <a href="#一、轮播广告">一、轮播广告</a>
+##### <a href="#二、资讯">二、资讯</a>
+1. <a href="#资讯列表">资讯列表</a>
 
 ### <a name="模板标题">模板标题</a>
 
@@ -60,6 +62,73 @@
       "pictureId": 15216380
     }]
   },
+  "stateCode": 101
+}
+```
+
+### <a name="二、资讯">二、资讯</a>
+1. <a name="资讯列表">资讯列表</a>
+
+- *URL*
+
+``` js
+/api/article/search
+```
+
+- *参数*
+
+``` js
+{
+  columnId: 查询类型(0:全部,1:帖子,2:专家经验)
+  userId: 查询某人资讯
+  trend: 查询某人
+  sortKey: 排序类型
+  sortValue: 排序参数
+  keyword: 关键字
+  pageNum: 页码
+  pageSize: 显示条目
+}
+```
+
+- *返回*
+
+``` js
+{
+  "data": {
+    result: [{
+      "id": 56542,
+      "userId": 44219,
+      "userType": 1,
+      "type": 2,
+      "title": "原来针灸减肥真的不光是说说而已!",
+      "picture": [{
+        "id": 123,
+        "pictureUrl": "http://***"
+      }, {
+        "id": 456,
+        "pictureUrl": "http://***"
+      }],
+      "publishName": "江同学",
+      "portrait": "http://***",
+      "publishTime": 1510927200000,
+      "publishTimeValue": "刚刚",
+      "label": [{
+        "id": 782834,
+        "name": "针灸养生"
+      }, {
+        "id": 527283,
+        "name": "养生膳食"
+      }],
+      "visitCount": 10,
+      "commentCount": 10,
+      "praiseCount": 10,
+      "hasPraised": true,
+      "hasFollow": false
+    }],
+    totalNum: 123
+    totalPage: 7
+  },
+  "message": "查询成功",
   "stateCode": 101
 }
 ```
