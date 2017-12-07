@@ -8,8 +8,11 @@
 
 ### <a href="#三、评论">三、评论</a>
 1. <a href="#获取评论">获取评论</a>
+2. <a href="#发布评论/回复">发布评论/回复</a>
 
-
+### <a href="#四、专题">四、专题</a>
+1. <a href="#专题列表">专题列表</a>
+2. <a href="#专题详情">专题详情</a>
 
 
 ### <a name="一、模板标题">一、模板标题</a>
@@ -327,7 +330,137 @@
 
 ``` js
 {
-  "data": {},
+    "data":
+    {
+        "result": [
+        {
+            "id": 24234,
+            "name": "用户A",
+            "userId": 23490823,
+            "portrait": "http://***",
+            "createTime": 111129084098,
+            "createTimeValue": "7-11",
+            "content": "不错不错",
+            "replys": [] // 该条评论的全部回复集合
+        },
+        {
+            "id": 542342,
+            "name": "用户B",
+            "userId": 234903,
+            "portrait": "http://***",
+            "createTime": 111429084098,
+            "createTimeValue": "8-11",
+            "content": "可以可以",
+            "replys": [] // 该条评论的全部回复集合
+        }],
+        "totalNum": 123,
+        "totalPage": 7
+    },
+    "message": "查询成功",
+    "stateCode": 101
+}
+```
+
+2. <a name="发布评论/回复">发布评论/回复</a>
+- *URL*
+
+``` js
+/api/comment/add
+```
+
+- *参数*
+``` js
+{
+  sourceId: , // 资源标识
+  sourceType: , // 资源类型
+  content: // 评论or回复内容
+}
+```
+
+- *返回*
+
+``` js
+{
+  "message": "评论成功",
+  "stateCode": 101
+}
+```
+
+### <a name="#四、专题">四、专题</a>
+1. <a name="#专题列表">专题列表</a>
+- *URL*
+
+``` js
+/api/topic/search
+```
+
+- *参数*
+
+``` js
+{
+  sortKey: , // 排序类型
+  sortType: , // 排序方式
+  pageNum: , //页码
+  pageSize: // 显示条目
+}
+```
+
+- *返回*
+
+``` js
+{
+  "data": {
+    "result": [
+      {
+        "id": 24234,
+        "name": "十种元气早餐",
+        "pictureUrl": "http://***",
+        "articleCount": 20,
+        "commentCount": 199
+      },
+      {
+        "id": 24234,
+        "name": "夏季养生的几大误区",
+        "pictureUrl": "http://***",
+        "articleCount": 20,
+        "commentCount": 199
+      }
+    ],
+    "totalNum": 123,
+    "totalPage": 7
+  },
+  "message": "查询成功",
+  "stateCode": 101
+}
+```
+
+2. <a name="#专题详情">专题详情</a>
+- *URL*
+
+``` js
+/api/topic/{id}
+```
+
+- *参数*
+
+``` js
+{}
+```
+
+- *返回*
+
+``` js
+{
+  "data": {
+    "id": 24234,
+    "name": "十种元气早餐",
+    "pictureUrl": "http://***",
+    "articleCount": 20,
+    "commentCount": 199,
+    "articles": [{
+
+    }]
+  },
   "message": "查询成功",
   "stateCode": 101
 }
