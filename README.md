@@ -24,9 +24,14 @@
 4. <a href="#关注">关注</a>
 5. <a href="#关注列表">关注列表</a>
 
+### <a href="#七、个人认证">七、个人认证</a>
+1. <a href="#医生认证">医生认证</a>
+2. <a href="#机构认证">机构认证</a>
+3. <a href="#机构类型">机构类型</a>
 
-### <a name="一、模板标题">一、模板标题</a>
-1. <a name="模板标题">模板标题</a>
+
+### <a name="模板主标题">模板主标题</a>
+1. <a name="模板副标题">模板副标题</a>
 - *URL*
 
 ``` js
@@ -364,8 +369,8 @@
 }
 ```
 
-### <a name="#四、专题">四、专题</a>
-1. <a name="#专题列表">专题列表</a>
+### <a name="四、专题">四、专题</a>
+1. <a name="专题列表">专题列表</a>
 - *URL*
 
 ``` js
@@ -403,7 +408,7 @@
 }
 ```
 
-2. <a name="#专题详情">专题详情</a>
+2. <a name="专题详情">专题详情</a>
 - *URL*
 
 ``` js
@@ -435,8 +440,8 @@
 }
 ```
 
-### <a name="#五、个人主页">五、个人主页</a>
-1. <a name="#个人信息">个人信息</a>
+### <a name="五、个人主页">五、个人主页</a>
+1. <a name="个人信息">个人信息</a>
 - *URL*
 
 ``` js
@@ -466,8 +471,8 @@
 }
 ```
 
-### <a name="#六、会员中心">六、会员中心</a>
-1. <a name="#个人中心">个人中心</a>
+### <a name="六、会员中心">六、会员中心</a>
+1. <a name="个人中心">个人中心</a>
 - *URL*
 
 ``` js
@@ -600,5 +605,140 @@
   "data": {},
   "message": "查询成功",
   "stateCode": 101
+}
+```
+
+### <a name="七、个人认证">七、个人认证</a>
+1. <a name="医生认证">医生认证</a>
+- *URL*
+
+``` js
+/api/user/approve
+```
+
+- *参数*
+
+``` js
+{
+    realName: , // 真实姓名
+    gender: , // 性别
+    professionTitle: , // 职称
+    workMobile: , // 工作电话
+    organization: , // 所属机构
+    city: , // 城市
+    profile: , // 个人介绍
+    primaryFiled: , // 擅长领域
+    idCardFront: { // 身份证正面
+        id: , // 图片标识
+        url: // 图片地址
+    }
+    idCardBack: { // 身份证反面
+        id: ,
+        url:
+    },
+    idCardHand: { // 手持身份证照片
+        id: ,
+        url:
+    },
+    bareheadedPhotoId: { // 免冠清晰正面照标
+        id: ,
+        url:
+    },
+    practicingCertificate: { // 医师执业证图片
+        id: ,
+        url:
+    },
+    professionCertificate: { // 医师职称证图片
+        id: ,
+        url:
+    }
+}
+```
+
+- *返回*
+
+``` js
+{
+  "message": "操作成功",
+  "stateCode": 101
+}
+```
+
+2. <a name="机构认证">机构认证</a>
+- *URL*
+
+``` js
+/api/user/approve/organization
+```
+
+- *参数*
+
+``` js
+{
+    type: {
+        id: , // 机构类型标识
+        name: // 机构类型名称
+    },
+    name: , // 机构名称
+    registrationNumber: , // 注册号
+    address: , // 机构地图地址
+    addressDetail: , // 手写详细地址
+    addressPoint: { //地图坐标
+        longitude, // 经度
+        latitude // 纬度
+    },
+    workMobile: , // 工作电话
+    legalPersonName: , // 法人姓名
+    profile: , // 机构介绍
+    primaryFiled: , // 擅长领域
+    businessLicenseFront: { // 营业执照图片
+        id: , //  图片标识,
+        url: // 图片地址
+    },
+    legalPersonIdCardFront: { // 法人身份证正面图片
+        id: ,
+        url:
+    },
+    legalPersonIdCardBack: { //法人身份证反面图片
+        id: ,
+        url:
+    }
+}
+```
+
+- *返回*
+
+``` js
+{
+  "message": "操作成功",
+  "stateCode": 101
+}
+```
+
+3. <a name="机构类型列表">机构类型列表</a>
+- *URL*
+
+``` js
+/api/organization/type
+```
+
+- *参数*
+
+``` js
+{}
+```
+
+- *返回*
+
+``` js
+{
+    "data":{
+        "result": [{
+            "id": 5234,
+            "name": "按摩"
+        }]
+    },
+    "message": "查询成功",
+    "stateCode": 101
 }
 ```
