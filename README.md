@@ -8,11 +8,21 @@
 
 ### <a href="#三、评论">三、评论</a>
 1. <a href="#获取评论">获取评论</a>
-2. <a href="#发布评论/回复">发布评论/回复</a>
+2. <a href="#发布评论/回复">发布评论/回复</a>
 
 ### <a href="#四、专题">四、专题</a>
 1. <a href="#专题列表">专题列表</a>
 2. <a href="#专题详情">专题详情</a>
+
+### <a href="#五、个人主页">五、个人主页</a>
+1. <a href="#个人信息">个人信息</a>
+
+### <a href="#六、会员中心">六、会员中心</a>
+1. <a href="#个人中心">个人中心</a>
+2. <a href="#修改基础信息">修改基础信息</a>
+3. <a href="#点赞">点赞</a>
+4. <a href="#关注">关注</a>
+5. <a href="#关注列表">关注列表</a>
 
 
 ### <a name="一、模板标题">一、模板标题</a>
@@ -53,7 +63,7 @@
 
 ``` js
 {
-  type: 轮播类型  1-首页
+  type:  // 轮播类型  1-首页
 }
 ```
 
@@ -66,14 +76,6 @@
       "link": "http://www.yidianchina.com/netauction/auction/15266468.html?utm_source=12ZWP26",
       "picture": "http://***/assets/upload/image/b34faeb07cd6b80758baf5b85c5b303b.jpg",
       "pictureId": 15761515
-    }, {
-      "link": "http://www.yidianchina.com/netauction/auction/15152626.html?utm_source=12XYYJD",
-      "picture": "http://***/assets/upload/image/c6d7f207bb639508f864314c3cb3de29.jpg",
-      "pictureId": 15536825
-    }, {
-      "link": "http://***/#/news/detail/9308911?utm_source=12ZS",
-      "picture": "http://picture1.yidianchina.com/assets/upload/image/61a04238272c15316c86dcc23d87797a.jpg",
-      "pictureId": 15216380
     }]
   },
   "stateCode": 101
@@ -93,14 +95,14 @@
 
 ``` js
 {
-  columnId: 查询类型(0:全部,1:帖子,2:专家经验)
-  userId: 查询某人资讯
-  trend: 查询某人
-  sortKey: 排序类型
-  sortValue: 排序参数
-  keyword: 关键字
-  pageNum: 页码
-  pageSize: 显示条目
+  columnId: , // 查询类型(0:全部,1:帖子,2:专家经验)
+  userId: , // 查询某人资讯
+  trend: , // 查询某人
+  sortKey: , // 排序类型
+  sortValue: , // 排序参数
+  keyword: , // 关键字
+  pageNum: , // 页码
+  pageSize: // 显示条目
 }
 ```
 
@@ -217,9 +219,6 @@
     "pictures": [{
       "id": 564,
       "url": "http://localhost:8080/assets/upload/product/0778f117551de2a7137531a80bc83ff7.png",
-    }, {
-      "id": 565,
-      "url": "http://localhost:8080/assets/upload/product/0fc2c18780a18df4f2766a7db631aca0.png",
     }],
     "labels": [{
       "id": 499,
@@ -246,11 +245,11 @@
 
 ``` js
 {
-  id: 传0代表新增
-  title: 标题
-  context: 正文
-  pictures: [id, id, id] 图片集合
-  labels: [id, id, id] 标签集合
+  id: , // 传0代表新增
+  title: , // 标题
+  context: , // 正文
+  pictures: [id, id, id] , // 图片集合
+  labels: [id, id, id] , // 标签集合
 }
 ```
 
@@ -258,8 +257,7 @@
 
 ``` js
 {
-  "data": {},
-  "message": "查询成功",
+  "message": "发布成功",
   "stateCode": 101
 }
 ```
@@ -293,16 +291,6 @@
         "id": 5,
         "name": "美容"
       }]
-    }, {
-      "id": 555,
-      "name": "饮食",
-      "labels": [{
-        "id": 11,
-        "name": "芬达"
-      }, {
-        "id": 22,
-        "name": "雪碧"
-      }]
     }]
   },
   "message": "查询成功",
@@ -322,7 +310,7 @@
 
 ``` js
 {
-  sourceId: 资源标识
+  sourceId: // 资源标识
 }
 ```
 
@@ -342,16 +330,6 @@
             "createTimeValue": "7-11",
             "content": "不错不错",
             "replys": [] // 该条评论的全部回复集合
-        },
-        {
-            "id": 542342,
-            "name": "用户B",
-            "userId": 234903,
-            "portrait": "http://***",
-            "createTime": 111429084098,
-            "createTimeValue": "8-11",
-            "content": "可以可以",
-            "replys": [] // 该条评论的全部回复集合
         }],
         "totalNum": 123,
         "totalPage": 7
@@ -361,7 +339,7 @@
 }
 ```
 
-2. <a name="发布评论/回复">发布评论/回复</a>
+2. <a name="发布评论/回复">发布评论/回复</a>
 - *URL*
 
 ``` js
@@ -381,7 +359,7 @@
 
 ``` js
 {
-  "message": "评论成功",
+  "message": "评论成功",
   "stateCode": 101
 }
 ```
@@ -410,22 +388,13 @@
 ``` js
 {
   "data": {
-    "result": [
-      {
+    "result": [{
         "id": 24234,
         "name": "十种元气早餐",
         "pictureUrl": "http://***",
         "articleCount": 20,
         "commentCount": 199
-      },
-      {
-        "id": 24234,
-        "name": "夏季养生的几大误区",
-        "pictureUrl": "http://***",
-        "articleCount": 20,
-        "commentCount": 199
-      }
-    ],
+      },],
     "totalNum": 123,
     "totalPage": 7
   },
@@ -461,6 +430,174 @@
 
     }]
   },
+  "message": "查询成功",
+  "stateCode": 101
+}
+```
+
+### <a name="#五、个人主页">五、个人主页</a>
+1. <a name="#个人信息">个人信息</a>
+- *URL*
+
+``` js
+/api/homepage/{id}
+```
+
+- *参数*
+
+``` js
+{}
+```
+
+- *返回*
+
+``` js
+{
+    "data": {
+        "portrait": "http://***",
+        "hasFollow": true,
+        "followCount": 10,
+        "byFollowCount": 20,
+        "whetherSelf": true,
+        "userAuditType": true
+    },
+    "message": "查询成功",
+    "stateCode": 101
+}
+```
+
+### <a name="#六、会员中心">六、会员中心</a>
+1. <a name="#个人中心">个人中心</a>
+- *URL*
+
+``` js
+/api/user/center
+```
+
+- *参数*
+
+``` js
+{}
+```
+
+- *返回*
+
+``` js
+{
+  "data": {
+    "userId": 1030,
+    "userAuditType":100001,
+    "userAuditStatus":200101,
+    "portrait": "",
+    "name": "",
+    "articleCount": 10,
+    "followCount", 10,
+    "byFollowCount": 20,
+    "followArticleCount":10,
+    "commentCount":10
+  },
+  "message": "查询成功",
+  "stateCode": 101
+}
+```
+
+2. <a name="修改基础信息">修改基础信息</a>
+- *URL*
+
+``` js
+/api/user/update
+```
+
+- *参数*
+
+``` js
+{
+  nickName: // 昵称
+}
+```
+
+- *返回*
+
+``` js
+{
+  "message": "操作成功",
+  "stateCode": 101
+}
+```
+
+3. <a name="点赞">点赞</a>
+- *URL*
+
+``` js
+/api/praise
+```
+
+- *参数*
+
+``` js
+{
+  sourceId: , // 被赞标识
+  sourceType: // 被赞类型
+}
+```
+
+- *返回*
+
+``` js
+{
+  "message": "操作成功",
+  "stateCode": 101
+}
+```
+
+4. <a name="关注">关注</a>
+- *URL*
+
+``` js
+/api/follow
+```
+
+- *参数*
+
+``` js
+{
+  sourceId: , // 被关注标识
+  sourceType: // 被关注类型
+}
+```
+
+- *返回*
+
+``` js
+{
+  "message": "操作成功",
+  "stateCode": 101
+}
+```
+
+5. <a name="关注列表">关注列表</a>
+- *URL*
+
+``` js
+/api/follow/search
+```
+
+- *参数*
+
+``` js
+{
+  userId: , // 查询某人关注列表
+  trend: , // 查询某人被关注列表
+  pageNum: , // 页码
+  pageSize: // 显示条目
+}
+```
+
+- *返回*
+
+``` js
+{
+  "data": {},
   "message": "查询成功",
   "stateCode": 101
 }
